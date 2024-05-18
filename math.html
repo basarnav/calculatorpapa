@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linear Equation Solver</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+		label {
+			margin-bottom: 10px;
+		}
+		input[type="number"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 16px;
+		}
+		button {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #45a049;
+		}
+		p {
+			margin-top: 30px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body bgcolor="blue"> <a href="home.html">home</a>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    <a href="calculator.html">calculator</a>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
+    <a href="math.html">Linear calculator</a>&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+	<h1>Linear Equation Solver</h1>
+	<form id="equation-form">
+		<label for="a">Enter the coefficient of x:</label>
+		<input type="number" id="a" name="a" required>
+		<label for="b">Enter the coefficient of y:</label>
+		<input type="number" id="b" name="b" required>
+		<label for="c">Enter the constant term:</label>
+		<input type="number" id="c" name="c" required>
+		<button type="submit">Solve</button>
+	</form>
+	<p id="solution"></p>
+
+	<script>
+		const form = document.getElementById('equation-form');
+		const solution = document.getElementById('solution');
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const a = parseFloat(form.elements['a'].value);
+			const b = parseFloat(form.elements['b'].value);
+			const c = parseFloat(form.elements['c'].value);
+			const x = -c / b;
+			const y = -a / b;
+			solution.textContent = `The solution is x = ${x}, y = ${y}.`;
+		});
+	</script>
+</body>
+</html>
